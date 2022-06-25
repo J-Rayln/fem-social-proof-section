@@ -1,0 +1,140 @@
+@use '../utils/variables' as v;
+@use '../utils/functions' as f;
+@use '../utils/mixins' as m;
+
+/* main page styles */
+
+main {
+    text-align: center;
+    margin-top: f.rem(80);
+
+    @include m.bp-up(lg) {
+        text-align: start;
+        margin-top: f.rem(115);
+    }
+}
+
+/* header */
+
+.header {
+    margin-bottom: f.rem(50);
+
+    &__copy {
+        margin-bottom: f.rem(45);
+    }
+
+    &__ratings {
+        display: grid;
+        gap: 1rem;
+
+        .star-rating {
+            background-color: v.$color-neutral-200;
+            color: v.$color-primary-100;
+            font-weight: v.$font-weight-bold;
+            line-height: 1;
+            padding: f.rem(15) 0;
+            border-radius: .5rem;
+            
+            .stars {
+                margin-bottom: .5rem;
+
+                img {
+                    display: inline-block;
+
+                }
+            }
+        }
+    }
+}
+
+@include m.bp-up(lg) {
+
+    .header {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: f.rem(75);
+
+        &__copy {
+            padding-right: f.rem(160);
+            margin-bottom: 0;
+
+            h1 {
+                max-width: 15ch;
+            }
+        }
+
+        &__ratings {
+            display: flex;
+            gap: 0;
+            flex-flow: column;
+            justify-content: space-evenly;
+            padding-left: 1rem;
+            line-height: 1;
+
+            .star-rating {
+                display: flex;
+                align-content: center;
+                width: f.rem(442);
+
+                .stars {
+                    margin: 0 f.rem(30);
+                }
+
+                &--2 {
+                    align-self: center;
+                }
+
+                &--3 {
+                    align-self: end;
+                }
+            }
+        }
+    }
+}
+
+/* testimonials */
+
+.testimonials {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    .card {
+        background-color: v.$color-primary-100;
+        color: v.$color-white;
+        text-align: start;
+        padding: f.rem(40) f.rem(30);
+        border-radius: .5rem;
+
+        &__author {
+            display: flex;
+            margin-bottom: f.rem(30);
+
+            > img {
+                height: f.rem(40);
+                border-radius: 50%;
+                margin-right: f.rem(24);
+            }
+
+            &--status {
+                color: v.$color-primary-200;
+            }
+        }
+    }
+
+    @include m.bp-up(lg) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: f.rem(30);
+
+        .card {
+
+            &--2 {
+                transform: translateY(1rem);
+            }
+
+            &--3 {
+                transform: translateY(2rem);
+            }
+        }
+    }
+}

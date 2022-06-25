@@ -1,0 +1,48 @@
+@use 'sass:math' as math;
+@use '../utils/variables' as v;
+
+// Responsive Typography Calculations
+// ----------------------------------
+// Based on info from CSS Tricks: https://tinyurl.com/2p93az34
+// 
+// STEP 1
+// - Set Min/Max font size for each element
+// - Set Min/Max viewport widths
+// - Formula will covert to rems based on 1rem = 16px
+// 
+// STEP 2
+// - Formula finds the following
+// 
+//   slope = (maxFontSize - minFontSize) / (maxWidth - minWidth)
+//   yAxisIntersection = -minWidth * slope + minFontSize
+// 
+// STEP 3
+// - Formula builds the clamp variable
+//   preferredValue = yAxisIntersection[rem] + (slope * 100)[vw]
+
+// headings
+
+$min-size-h1:  26;
+$max-size-h1: 36;
+
+$min-vw: 380;
+$max-vw: 840;
+
+$h1-min-converted: math.div($min-size-h1, 16) * 1rem;
+$h1-max-converted: math.div($max-size-h1, 16) * 1rem;
+$vw-min-converted: math.div($min-vw, 16) * 1rem;
+$vw-max-converted: math.div($max-vw, 16) * 1rem;
+
+
+// $slope: math.div( (math.div($max-size-h1,16) - math.div($min-size-h1,16)) , (math.div($max-vw,16) - math.div($min-vw,16)) );
+// $yAxxisIntersection: ((math.div($min-vw,16) * $slope) * -1) + math.div($min-size-h1, 16);
+
+$slope: math.div(($h1-max-converted - $h1-min-converted), ($vw-max-converted - $vw-min-converted));
+$yAxis: ($vw-min-converted * -1) * $slope + $h1-min-converted;
+$h1-pref-value: $yAxis + ($slope * 100);
+
+span {
+    content: $slope;
+    content: $yAxis;
+    content: $h1-pref-value;
+}

@@ -1,0 +1,64 @@
+@use 'functions' as f;
+
+// Variables
+// 
+// All variables used throughout the site should be stored in this file.
+
+
+// Colors
+
+// Primary
+$color-primary-100: hsl(300, 43%, 22%);
+$color-primary-200: hsl(333, 80%, 67%);
+
+// Neutral
+$color-neutral-100: hsl(303, 10%, 53%);
+$color-neutral-200: hsl(300, 24%, 96%);
+
+// Basic
+$color-white: hsl(0, 0%, 100%);
+
+
+// Typography
+
+// Font Stacks
+$font-family-body: 'League Spartan', sans-serif;
+
+// Min/Max Font Sizes
+// - used to calculate Responsive Font Sizes
+$font-size-mobile: f.rem(15);  // unused for this project
+$font-size-desktop: f.rem(15);  // unused for this project
+
+// Responsive Font Sizes
+// - these variables should be used in the final CSS
+$font-size-body: f.rem(15);
+$font-size-h1: clamp(2rem, 1.48rem + 2.17vw, 2.625rem);
+$font-size-h2: f.rem(15);
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Base Padding & Margin
+$padding-x: f.rem(30);
+
+
+// Device Breakpoints & Max Widths
+
+$max-width-desktop: f.rem(1120);
+$max-width-tablet: f.rem(840);
+$max-width-phone: f.rem(325);
+
+$breakpoints-up: (
+    "sm": f.rem(499),
+    "md": f.rem(699),
+    "lg": f.rem(1000),
+    "xl": f.rem(1399)
+);
+
+$breakpoints-down: (
+    "sm": f.rem(374.98),
+    "md": f.rem(599.98),
+    "lg": f.rem(999.98)
+);

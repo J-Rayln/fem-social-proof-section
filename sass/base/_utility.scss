@@ -1,0 +1,27 @@
+@use '../utils/variables' as v;
+@use '../utils/functions' as f;
+@use '../utils/mixins' as m;
+
+/* helper classes */
+
+.container {
+    // border: 1px solid aqua;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 f.rem(24);
+
+    @include m.bp-up(md) {
+        max-width: v.$max-width-tablet;
+    }
+
+    @include m.bp-up(lg) {
+        max-width: v.$max-width-desktop;
+        padding: 0;
+    }
+}
+
+.max-55ch {
+    max-width: 55ch;
+    margin-left: auto;
+    margin-right: auto;
+}
