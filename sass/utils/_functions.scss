@@ -1,8 +1,8 @@
 @use 'sass:math' as math;
 
-// calcluate rem units for pixel values
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// --- calculateions assume defauly font size of 1rem/em = 16px
+// calcluate rem/em units for pixel values
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// --- calculateions assume default font size of 1rem/em = 16px
 // 
 // --- to calculate rems based on a DIFFERENT base font size, include
 //     the second argument.
